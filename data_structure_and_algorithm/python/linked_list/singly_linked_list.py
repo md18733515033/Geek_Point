@@ -58,7 +58,7 @@ class SinglyLinkedList(object):
 
     def insert_node_before(self, node: Node, new_node: Node):
         """将某个节点插入到链表某个节点的前面"""
-        if node or new_node:
+        if not node or not new_node:
             return
         if node == self._head:
             self.insert_node_to_head(new_node)
@@ -78,6 +78,7 @@ class SinglyLinkedList(object):
         if node._next:
             node.data = node._next.data
             node._next = node._next._next
+            return
         current = self._head
         while current and current._next != node:
             current = current._next
@@ -125,7 +126,8 @@ class SinglyLinkedList(object):
         if current:
             print(f"{current.data}", end="")
         while current:
-            print(f"->{current.data}", end="")
+            if current._next:
+                print(f"->{current._next.data}", end="")
             current = current._next
         print("\n", flush=True)
 
@@ -136,12 +138,17 @@ if __name__ == "__main__":
         l.insert_value_to_head(i)
     node9 = l.find_by_value(9)
     l.insert_value_before(node9, 20)
+    l.print_all()
     l.insert_value_before(node9, 16)
     l.insert_value_before(node9, 16)
+    l.print_all()
     l.delete_by_value(16)
+    l.print_all()
     node11 = l.find_by_index(3)
     l.delete_by_node(node11)
+    l.print_all()
     l.delete_by_node(l._head)
+    l.print_all()
     l.delete_by_value(13)
     print(l)
     for value in l:
