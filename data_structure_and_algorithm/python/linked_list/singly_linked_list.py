@@ -131,6 +131,70 @@ class SinglyLinkedList(object):
             current = current._next
         print("\n", flush=True)
 
+    def delete_last_n_node(self, n):
+        """删除链表中倒数第N个节点.
+        主体思路：
+            设置快、慢两个指针，快指针先行，慢指针不动；当快指针跨了N步以后，快、慢指针同时往链表尾部移动，
+            当快指针到达链表尾部的时候，慢指针所指向的就是链表的倒数第N个节点
+        参数:
+            n:需要删除的倒数第N个序数
+        """
+        fast = self._head
+        slow = self._head
+        step = 0
+        while step <= n:
+            fast = fast._next
+            step += 1
+
+        while fast._next is not None:
+            tmp = slow
+            fast = fast._next
+            slow = slow._next
+
+        tmp._next = slow._next
+
+    def find_mid_node(self):
+        """查找链表中的中间节点.
+        主体思想:
+            设置快、慢两种指针，快指针每次跨两步，慢指针每次跨一步，则当快指针到达链表尾部的时候，慢指针指向链表的中间节点
+        返回:
+            node:链表的中间节点
+        """
+        fast = self._head
+        slow = self._head
+        while fast._next is not None:
+            fast = fast._next._next
+            slow = slow._next
+
+        return slow
+
+    def reversed_self(self):
+        """翻转链表自身."""
+        if self._head is None or self._head._next is None:  # 如果链表为空，或者链表只有一个节点
+            return
+
+        pre = self._head
+        node = self._head._next
+        while node is not None:
+            pre, node = self.__reversed_with_two_node(pre, node)
+
+        self._head._next = None
+        self._head = pre
+
+    def __reversed_with_two_node(self, pre, node):
+        """翻转相邻两个节点.
+        参数:
+            pre:前一个节点
+            node:当前节点
+        返回:
+            (pre,node):下一个相邻节点的元组
+        """
+        tmp = node._next
+        node._next = pre
+        pre = node  # 这样写有点啰嗦，但是能让人更能看明白
+        node = tmp
+        return pre, node
+
 
 if __name__ == "__main__":
     l = SinglyLinkedList()
@@ -147,7 +211,7 @@ if __name__ == "__main__":
     node11 = l.find_by_index(3)
     l.delete_by_node(node11)
     l.print_all()
-    l.delete_by_node(l._head)
+    l.reversed_self()
     l.print_all()
     l.delete_by_value(13)
     print(l)
