@@ -197,12 +197,56 @@ class SinglyLinkedList(object):
         # 现在pre 保存的是原有的node->pre  node保存的是最早的node后面的部分
         return pre, node
 
+    def fast_slow_has_ring(self):
+        """检查链表中是否有环.
+        主体思想：
+            设置快、慢两种指针，快指针每次跨两步，慢指针每次跨一步，如果快指针没有与慢指针相遇而是顺利到达链表尾部
+            说明没有环；否则，存在环
+        返回:
+            True:有环
+            False:没有环
+        """
+        # 头指针以及头指针的下一个以及头指针的下下一个只要为None就肯定没有环
+        if self._head is None or self._head._next is None or self._head._next._next is None:
+            return False
+
+        fast = self._head._next._next
+        slow = self._head._next
+
+        while fast is not slow:
+            # 如果快指针的下一个或者下下一个是None那就说明没有环
+            if fast._next is None or fast._next._next is None:
+                return False
+            # 否则快指针走两步,慢指针走一步,直到快指针追上满指针为止
+            fast = fast._next._next
+            slow = slow._next
+        # 如果快指针和慢指针相遇,那就说明有环
+        return True
+
+    def set_has_ring(self):
+        """
+        检查链表中是否有环
+        思路:
+        1. 定义一个集合
+        2. 遍历链表,每遍历一个节点就判断集合中是否存在这个节点,如果节点存在说明是循环链表,如果遍历完都没有重复的节点说明没有环
+        """
+        node_set = set()
+        node = self._head
+        while node:
+            if node not in node_set:
+                node_set.add(node)
+                node = node._next
+            else:
+                return True
+        return False
+
 
 if __name__ == "__main__":
     l = SinglyLinkedList()
     for i in range(15):
         l.insert_value_to_head(i)
     node9 = l.find_by_value(9)
+    print(l.set_has_ring())
     l.insert_value_before(node9, 20)
     l.print_all()
     l.insert_value_before(node9, 16)
@@ -219,3 +263,12 @@ if __name__ == "__main__":
     print(l)
     for value in l:
         print(value)
+    node14 = l.find_by_value(14)
+    node4 = l.find_by_value(4)
+    l.insert_node_before(node4, node14)
+    # 使用快慢指针进行判断
+    print(l.fast_slow_has_ring())
+    # 打印循环链表会变成死循环
+    # l.print_all()
+    # 使用集合法进行判断
+    print(l.set_has_ring())
