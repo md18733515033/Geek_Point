@@ -189,10 +189,12 @@ class SinglyLinkedList(object):
         返回:
             (pre,node):下一个相邻节点的元组
         """
+        # 这里node._next=pre是指针变了,和tmp断开没有关系了,然后pre=node pre._next指向的也不是node,和node已经断开了
         tmp = node._next
         node._next = pre
         pre = node  # 这样写有点啰嗦，但是能让人更能看明白
         node = tmp
+        # 现在pre 保存的是原有的node->pre  node保存的是最早的node后面的部分
         return pre, node
 
 
