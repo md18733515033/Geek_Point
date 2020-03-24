@@ -6,4 +6,3 @@ def a(n):
         return 2
     return a(n-1) + a(n-2)
 
-print(a(3))

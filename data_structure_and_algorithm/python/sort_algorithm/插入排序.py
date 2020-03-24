@@ -1,4 +1,7 @@
-def insert_sort(arr: list):
+from typing import List
+
+
+def insert_sort(arr: List[int]):
     """
     原地排序,稳定排序,时间复杂度: 最好O(n) 最差O(n^2) 平均O(n^2)
     直接插入排序是插入排序的一种，核心思想就是将整个序列看成两部分，有序和无序，从第二个元素开始遍历，每次取出一个跟其左边那个元素比较，

@@ -1,4 +1,7 @@
-def select_sort(arr: list):
+from typing import List
+
+
+def select_sort(arr: List[int]):
     """
     原地排序,不稳定排序,时间复杂度: 最好O(n^2) 最差O(n^2) 平均O(n^2)
     选择排序算法的实现思路有点类似插入排序,也分已排序区间和未排序区间。但是选择排序每次会从未排序区间中找到最小的元素,将其放到已排序区间的末尾。

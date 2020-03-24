@@ -1,7 +1,9 @@
+from typing import List
+
 chaos = [2, 6, 3, 100, 7, 9, 5]
 
 
-def bubble_sort(chaos_list: list):
+def bubble_sort(chaos_list: List[int]):
     """
     原地排序,稳定排序,时间复杂度: 最好O(n) 最差O(n^2) 平均O(n^2)
     :param chaos_list:
