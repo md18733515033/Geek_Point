@@ -14,6 +14,7 @@ def _quick_sort_between(a: List[int], low: int, high: int):
         k = random.randint(low, high)
         a[low], a[k] = a[k], a[low]
 
+        # m是选取分区点之后按照左小右大的顺序排序之后的索引位置
         m = _partition(a, low, high)  # a[m] is in final position
         _quick_sort_between(a, low, m - 1)
         _quick_sort_between(a, m + 1, high)
