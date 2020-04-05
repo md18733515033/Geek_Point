@@ -2,7 +2,7 @@
 - [1.Python是如何进行内存管理的？](#1.Python是如何进行内存管理的?)
 - [2.如何用Python来进行查询和替换一个文本字符串？](#2.如何用Python来进行查询和替换一个文本字符串?)
 - [3.Python里面match()和search()的区别？](#3.Python里面match()和search()的区别?)
-- [4.如何在一个function里面设置一个全局的变量？](#4.如何在一个function里面设置一个全局的变量?)
+- [4.如何在一个function里面声明一个全局变量?](#4.如何在一个function里面声明一个全局变量?)
 - [Install中国](#install中国)
         
 ### 1.Python是如何进行内存管理的?
@@ -45,7 +45,7 @@
     re模块中research(pattern,string[,flags]),在string搜索pattern的第一个匹配值。
 ```
 
-### 4.如何在一个function里面设置一个全局的变量?
+### 4.如何在一个function里面声明一个全局变量?
 答：解决方法是在function的开始插入一个global声明：
 ```
 def f()
