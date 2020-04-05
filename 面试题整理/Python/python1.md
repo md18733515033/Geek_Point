@@ -3,7 +3,7 @@
 - [2.如何用Python来进行查询和替换一个文本字符串？](#2.如何用Python来进行查询和替换一个文本字符串?)
 - [3.Python里面match()和search()的区别？](#3.Python里面match()和search()的区别?)
 - [4.如何在一个function里面设置一个全局的变量？](#4.如何在一个function里面设置一个全局的变量?)
-- [Install](#install)
+- [Install中国](#install中国)
         
 ### 1.Python是如何进行内存管理的?
 答:从三个方面来说,一对象的引用计数机制,二垃圾回收机制,三内存池机制
@@ -52,4 +52,4 @@ def f()
     global x
 ```
 
-### Install
+### Install中国
