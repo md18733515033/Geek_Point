@@ -51,3 +51,5 @@
 def f()
     global x
 ```
+
+### Install
