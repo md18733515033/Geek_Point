@@ -21,13 +21,12 @@ def _quick_sort_between(a: List[int], low: int, high: int):
 
 
 def _partition(a: List[int], low: int, high: int):
+    # 将list按照分区点分为左右两部分,左边部分是比分区点小的,右边部分是比分区点大的
     pivot, j = a[low], low
     for i in range(low + 1, high + 1):
         if a[i] <= pivot:
             j += 1
-            print(a[i], a[j])
             a[j], a[i] = a[i], a[j]  # swap
-            print(a)
     a[low], a[j] = a[j], a[low]
     return j
 
