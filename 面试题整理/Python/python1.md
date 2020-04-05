@@ -1,10 +1,11 @@
 ## 目录
-- [1.Python是如何进行内存管理的？](#1.Python是如何进行内存管理的？)
-- [2.如何用Python来进行查询和替换一个文本字符串？](#2.如何用Python来进行查询和替换一个文本字符串？)
-- [3.Python里面match()和search()的区别？](#3.Python里面match()和search()的区别？)
-- [4.如何在一个function里面设置一个全局的变量？](#4.如何在一个function里面设置一个全局的变量？)
+- [1.Python是如何进行内存管理的？](#1.Python是如何进行内存管理的?)
+- [2.如何用Python来进行查询和替换一个文本字符串？](#2.如何用Python来进行查询和替换一个文本字符串?)
+- [3.Python里面match()和search()的区别？](#3.Python里面match()和search()的区别?)
+- [4.如何在一个function里面设置一个全局的变量？](#4.如何在一个function里面设置一个全局的变量?)
+- [Install](#install)
         
-### 1.Python是如何进行内存管理的？
+### 1.Python是如何进行内存管理的?
 答:从三个方面来说,一对象的引用计数机制,二垃圾回收机制,三内存池机制
 
 1. 对象的引用计数机制
@@ -28,7 +29,7 @@
     2. Python中所有小于256个字节的对象都使用pymalloc实现的分配器，而大的对象则使用系统的malloc。
     3. 对于Python对象，如整数，浮点数和List，都有其独立的私有内存池，对象间不共享他们的内存池。也就是说如果你分配又释放了大量的整数，用于缓存这些整数的内存就不能再分配给浮点数。
     
-### 2.如何用Python来进行查询和替换一个文本字符串？
+### 2.如何用Python来进行查询和替换一个文本字符串?
 
 答：可以使用re模块中的sub()函数或者subn()函数来进行查询和替换，
 ```
@@ -37,14 +38,14 @@
     subn()方法执行的效果跟sub()一样，不过它会返回一个二维数组，包括替换后的新的字符串和总共替换的数量
 ```
 
-### 3.Python里面match()和search()的区别？
+### 3.Python里面match()和search()的区别?
 答：
 ```
     re模块中match(pattern,string[,flags]),检查string的开头是否与pattern匹配。
     re模块中research(pattern,string[,flags]),在string搜索pattern的第一个匹配值。
 ```
 
-### 4.如何在一个function里面设置一个全局的变量？
+### 4.如何在一个function里面设置一个全局的变量?
 答：解决方法是在function的开始插入一个global声明：
 ```
 def f()
