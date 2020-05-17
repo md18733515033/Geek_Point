@@ -49,7 +49,7 @@
 答：
 ```
     re模块中match(pattern,string[,flags]),检查string的开头是否与pattern匹配。
-    re模块中research(pattern,string[,flags]),在string搜索pattern的第一个匹配值。
+    re模块中search(pattern,string[,flags]),在string搜索pattern的第一个匹配值。
 ```
 
 <a name="4"></a> 
